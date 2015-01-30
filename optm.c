@@ -3,7 +3,7 @@
 
 void printset(int p,int k, int arr[20000])
 {
- int i,j,r,l,resa[10000],resb[10000],resc[10000],resd[10000],a,b,c,d,q;
+ int i,j,r,l,resa[10000],resb[10000],resc[10000],resd[10000],a,b,c,d,q,flag=0;
 for(i=0;i<p;i++)
   {
 
@@ -46,8 +46,23 @@ q++;
 }
 
 
-for(i=0;i<q;i++)
+printf("%d,%d,%d,%d\n",resa[0],resb[0],resc[0],resd[0]);
+for(i=1;i<q;i++)
+{
+for(j=0;j<i;j++)
+{
+if(resa[i]!=resa[j] && resb[i]!=resb[j] && resc[i]!=resc[j] && resd[i]!=resd[j])
+flag=1;
+}
+if(flag==1)
 printf("%d,%d,%d,%d\n",resa[i],resb[i],resc[i],resd[i]);
+
+}
+
+
+
+//for(i=0;i<q;i++)
+//printf("%d,%d,%d,%d\n",resa[i],resb[i],resc[i],resd[i]);
 
 }
 
@@ -60,7 +75,7 @@ void main()
 int arr[20000],i=0,p,k;
 FILE * optFile;
  
-optFile = fopen ("optfile.txt","r");
+optFile = fopen ("optm.txt","r");
 printf("enter the value of k");
 scanf("%d",&k);
 
